@@ -18,7 +18,7 @@ const App = () => {
     getCurrentUser(dispatch);
   }, [dispatch]);
 
-  const { userData } = useSelector((state) => state.user);
+  const { userData, authLoading  } = useSelector((state) => state.user);
   return (
     <>
       <Routes>
