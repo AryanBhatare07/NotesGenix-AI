@@ -1,15 +1,22 @@
 import { serverUrl } from "../App";
 import axios from "axios";
-import { setUserData } from "../redux/userSlice.js";
+import { setUserData, setAuthLoading  } from "../redux/userSlice.js";
 
 export const getCurrentUser = async (dispatch) => {
   try {
-    const result = await axios.get(serverUrl + "/api/user/currentuser", {
-      withCredentials: true,
-    });
+    const result = await axios.get(
+      serverUrl + "/api/user/currentuser",
+      {
+        withCredentials: true,
+      }
+    );
+
     dispatch(setUserData(result.data));
   } catch (error) {
     console.log(error);
+    dispatch(setUserData(null));
+  } finally {
+    dispatch(setAuthLoading(false));
   }
 };
 
