@@ -19,6 +19,15 @@ const App = () => {
   }, [dispatch]);
 
   const { userData, authLoading  } = useSelector((state) => state.user);
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        Loading...
+      </div>
+    );
+  }
+  
   return (
     <>
       <Routes>
