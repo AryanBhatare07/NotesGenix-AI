@@ -1,22 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
-
 const userSlice = createSlice({
-    name: "user",
-    initialState: {
-        userData: null
+  name: "user",
+
+  initialState: {
+    userData: null,
+    authLoading: true,
+  },
+
+  reducers: {
+    setUserData: (state, action) => {
+      state.userData = action.payload;
     },
-    reducers:{
-        setUserData:(state,action) => {
-            state.userData = action.payload
-        },
-        updateCredits:(state,action)=>{
-            if(state.userData){
-                state.userData.credits = action.payload
-            }
-        }
-    }
-})
 
-export const {setUserData, updateCredits} = userSlice.actions
+    setAuthLoading: (state, action) => {
+      state.authLoading = action.payload;
+    },
 
-export default userSlice.reducer
+    updateCredits: (state, action) => {
+      if (state.userData) {
+        state.userData.credits = action.payload;
+      }
+    },
+  },
+});
