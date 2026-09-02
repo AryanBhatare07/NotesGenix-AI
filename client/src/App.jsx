@@ -10,7 +10,7 @@ import Notes from "./pages/Notes.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import PaymentSuccess from "./pages/PaymentSuccess.jsx";
 import PaymentFailed from "./pages/PaymentFailed.jsx";
-export const serverUrl = "http://localhost:8000";
+export const serverUrl = "https://notesgenix-aiserver.onrender.com";
 
 const App = () => {
   const dispatch = useDispatch();
